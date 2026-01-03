@@ -63,7 +63,7 @@ enum Templates {
   EXPRESS
   VUE
   HONO
-  ANGULAR
+  ANGULAR 
 }
 model Playground {
   id  String @id @default(cuid()) @map("_id")
