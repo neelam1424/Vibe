@@ -229,7 +229,8 @@ const MainPlaygroundPage = () => {
         }
 
            const newTemplateData = await saveTemplateData(updatedTemplateData);
-        setTemplateData(newTemplateData || updatedTemplateData);
+        // setTemplateData(newTemplateData || updatedTemplateData);
+        setTemplateData(updatedTemplateData);     //github code
 // Update open files
         const updatedOpenFiles = openFiles.map((f) =>
           f.id === targetFileId
@@ -382,7 +383,7 @@ const MainPlaygroundPage = () => {
 
               <div className="flex items-center gap-1">
                 <Tooltip>
-                  <TooltipTrigger>
+                  <TooltipTrigger asChild>
                     <Button
                       size="sm"
                       variant="outline"
