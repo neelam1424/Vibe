@@ -83,14 +83,22 @@ const MainPlaygroundPage = () => {
     updateFileContent
   } = useFileExplorer();
 
-  const {
-    serverUrl,
-    isLoading: containerLoading,
-    error: containerError,
-    instance,
-    writeFileSync,
-    // @ts-ignore
-  } = useWebContainer({ templateData });
+  // const {
+  //   serverUrl,
+  //   isLoading: containerLoading,
+  //   error: containerError,
+  //   instance,
+  //   writeFileSync,
+  //   // @ts-ignore
+  // } = useWebContainer({ templateData });
+
+
+
+  // ✅ Use non-null assertion for templateData
+  const { serverUrl, isLoading: containerLoading, error: containerError, instance, writeFileSync } =
+    useWebContainer({ templateData: templateData! });
+
+
 
   const lastSyncedContent = useRef<Map<string, string>>(new Map());
 
@@ -230,7 +238,7 @@ const MainPlaygroundPage = () => {
 
            const newTemplateData = await saveTemplateData(updatedTemplateData);
         // setTemplateData(newTemplateData || updatedTemplateData);
-        setTemplateData(updatedTemplateData);     //github code
+        setTemplateData(updatedTemplateData);     //github
 // Update open files
         const updatedOpenFiles = openFiles.map((f) =>
           f.id === targetFileId
